@@ -49,6 +49,15 @@ const AddPlan = () => {
     daysData,
   } = Hooks();
 
+  //sürekli spinner ekranı gözükmesin diye emülatör için kapatıldı
+  // if (device == null ) {
+  //   return (
+  //     <View style={styles.devicesNull}>
+  //       <ActivityIndicator />
+  //     </View>
+  //   );
+  // }
+
   return (
     <View style={styles.container}>
       <View style={styles.grow}>
