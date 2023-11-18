@@ -4,6 +4,7 @@ import {
   TouchableOpacity,
   StyleSheet,
   ActivityIndicator,
+  Platform,
 } from 'react-native';
 import React from 'react';
 import {BackIcon, Before, Now} from '../../common/assets';
@@ -48,7 +49,7 @@ const AddPlan = () => {
     daysData,
   } = Hooks();
 
-  if (device == null && __DEV__) {
+  if (device == null && Platform.OS === 'android') {
     return (
       <View style={styles.devicesNull}>
         <ActivityIndicator />
