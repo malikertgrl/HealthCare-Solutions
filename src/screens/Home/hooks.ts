@@ -12,7 +12,6 @@ const Hooks = () => {
   }, [data]);
 
   const onSearch = (text: string) => {
-    console.log('first', text);
     setSearchText(text);
     if (text && list?.length) {
       const filtered = list.filter(

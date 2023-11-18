@@ -49,14 +49,6 @@ const AddPlan = () => {
     daysData,
   } = Hooks();
 
-  if (device == null && Platform.OS === 'android') {
-    return (
-      <View style={styles.devicesNull}>
-        <ActivityIndicator />
-      </View>
-    );
-  }
-
   return (
     <View style={styles.container}>
       <View style={styles.grow}>
