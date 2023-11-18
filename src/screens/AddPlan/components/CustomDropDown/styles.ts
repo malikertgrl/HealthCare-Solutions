@@ -38,6 +38,14 @@ const styles = StyleSheet.create({
     backGroundColor: 'red',
     top: 48,
   },
+  dropWiew: {
+    width: '100%',
+    backgroundColor: '#F8F8F6',
+    zIndex: 99,
+    position: 'absolute',
+    top: 30,
+  },
+  text: {borderBottomWidth: 1, padding: 2, borderColor: '#fff'},
 });
 
 export default styles;

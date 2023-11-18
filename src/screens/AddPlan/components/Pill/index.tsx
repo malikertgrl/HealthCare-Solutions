@@ -1,8 +1,7 @@
 import {TextInput, TouchableOpacity, View} from 'react-native';
-import React, {useState} from 'react';
+import React from 'react';
 import {Pills, Qr} from '../../../../common/assets';
 import styles from './styles';
-import CustomText from '../../../Home/components/CustomText';
 export type Props = {
   onPress: () => void;
   pillName: string;
@@ -20,7 +19,7 @@ const Pill = ({onPress, pillName, setPillName}: Props) => {
             value={pillName}
             onChangeText={val => setPillName(val)}
             placeholder="Pill Name..."
-            style={{marginLeft: 12}}
+            style={styles.mrgnLeft12}
           />
         </View>
         <TouchableOpacity onPress={onPress}>

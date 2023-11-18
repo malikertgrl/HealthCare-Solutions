@@ -1,4 +1,10 @@
-import {Alert, Touchable, TouchableOpacity, View} from 'react-native';
+import {
+  Alert,
+  ScrollView,
+  Touchable,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import React, {useState} from 'react';
 import {
   CalenderActive,
@@ -12,9 +18,13 @@ import styles from './styles';
 export type Props = {
   dropText: string;
   havePills?: boolean;
-  amount: number;
+  amount?: number;
+  days?: number;
   modal: boolean;
   setModal: React.Dispatch<React.SetStateAction<boolean>>;
+  setAmount?: React.Dispatch<React.SetStateAction<number>>;
+  setDays?: React.Dispatch<React.SetStateAction<number>>;
+  data: number[];
 };
 
 const CustomDropDown = ({
@@ -23,7 +33,12 @@ const CustomDropDown = ({
   amount,
   modal,
   setModal,
+  setAmount,
+  data,
 }: Props) => {
+  const onPress = () => {
+    setModal(prevState => !prevState);
+  };
   return (
     <View>
       <View style={styles.container}>
@@ -33,12 +48,27 @@ const CustomDropDown = ({
         </View>
         <View style={styles.dropStyle}>
           <CustomText>{amount} </CustomText>
-          <TouchableOpacity onPress={() => setModal(prevState => !prevState)}>
+
+          <TouchableOpacity onPress={() => onPress()}>
             <Drop />
           </TouchableOpacity>
         </View>
       </View>
-      {modal && <View></View>}
+      {modal && (
+        <View style={styles.dropWiew}>
+          {data.map(item => (
+            <TouchableOpacity
+              onPress={() => {
+                setAmount(item);
+                setModal(false);
+              }}>
+              <View style={styles.text}>
+                <CustomText>{item}</CustomText>
+              </View>
+            </TouchableOpacity>
+          ))}
+        </View>
+      )}
     </View>
   );
 };

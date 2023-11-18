@@ -17,6 +17,7 @@ const styles = StyleSheet.create({
     lineHeight: 38,
     marginLeft: 15,
   },
+  mrgnLeft12: {marginLeft: 12},
 });
 
 export default styles;

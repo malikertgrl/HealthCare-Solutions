@@ -42,9 +42,13 @@ const AddPlan = () => {
     navigation,
     checkCameraPermission,
     setIsActive,
+    setAmount,
+    setDays,
+    pillsData,
+    daysData,
   } = Hooks();
 
-  if (device == null) {
+  if (device == null && __DEV__) {
     return (
       <View style={styles.devicesNull}>
         <ActivityIndicator />
@@ -74,17 +78,21 @@ const AddPlan = () => {
 
         <View style={styles.drop}>
           <CustomDropDown
+            data={pillsData}
             dropText={'pills'}
             havePills
             amount={amount}
             modal={pillsModalVisible}
             setModal={setPillsModalVisible}
+            setAmount={setAmount}
           />
           <CustomDropDown
+            data={daysData}
             dropText={'days'}
             amount={days}
             modal={daysModalVisible}
             setModal={setDaysModalVisible}
+            setAmount={setDays}
           />
         </View>
 

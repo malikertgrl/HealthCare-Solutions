@@ -1,6 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react';
-import {PillsModel} from '../../redux/slices/healthSolutionSlice';
-import {useAppSelector} from '../../redux/hooks';
+import {useRef, useState} from 'react';
 import {Linking, Alert, Platform} from 'react-native';
 
 import {useNavigation} from '@react-navigation/native';
@@ -26,6 +24,8 @@ const Hooks = () => {
   const devices = useCameraDevices();
   const device = devices.back;
   const dispatch = useAppDispatch();
+  const pillsData = [1, 2, 3];
+  const daysData = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   const checkCameraPermission = async () => {
     setIsActive(true);
@@ -113,6 +113,8 @@ const Hooks = () => {
     setPillName,
     navigation,
     checkCameraPermission,
+    pillsData,
+    daysData,
   };
 };
 
