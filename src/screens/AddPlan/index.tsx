@@ -123,9 +123,7 @@ const AddPlan = () => {
           preset="vga-640x480"
         />
       )}
-
       <Button title="Done" onPress={setTodo} />
-      {/* <Sheet></Sheet> */}
     </View>
   );
 };
