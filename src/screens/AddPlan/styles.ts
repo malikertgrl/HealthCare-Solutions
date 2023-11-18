@@ -46,6 +46,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
   },
+  devicesNull: {flex: 1, alignItems: 'center', justifyContent: 'center'},
+  back: {position: 'absolute', zIndex: 999, top: 60, left: 20},
+  icon: {padding: 10, backgroundColor: '#fff'},
 });
 
 export default styles;

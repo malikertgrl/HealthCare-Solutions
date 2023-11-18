@@ -1,5 +1,10 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import {View, TouchableOpacity, StyleSheet} from 'react-native';
+import {
+  View,
+  TouchableOpacity,
+  StyleSheet,
+  ActivityIndicator,
+} from 'react-native';
 import React from 'react';
 import {BackIcon, Before, Now} from '../../common/assets';
 import styles from './styles';
@@ -36,7 +41,16 @@ const AddPlan = () => {
     setPillName,
     navigation,
     checkCameraPermission,
+    setIsActive,
   } = Hooks();
+
+  if (device == null) {
+    return (
+      <View style={styles.devicesNull}>
+        <ActivityIndicator />
+      </View>
+    );
+  }
 
   return (
     <View style={styles.container}>
@@ -111,19 +125,26 @@ const AddPlan = () => {
           }}
         />
       </View>
-      {device == null ? null : (
-        // <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-        //   <ActivityIndicator />
-        // </View>
-        <Camera
-          ref={camera}
-          style={StyleSheet.absoluteFill}
-          device={device}
-          isActive={isActive}
-          preset="vga-640x480"
-        />
-      )}
       <Button title="Done" onPress={setTodo} />
+
+      {isActive && (
+        <>
+          <Camera
+            ref={camera}
+            style={StyleSheet.absoluteFill}
+            device={device}
+            isActive={isActive}
+            preset="vga-640x480"
+          />
+          <View style={styles.back}>
+            <TouchableOpacity
+              style={styles.icon}
+              onPress={() => setIsActive(false)}>
+              <BackIcon />
+            </TouchableOpacity>
+          </View>
+        </>
+      )}
     </View>
   );
 };

@@ -27,19 +27,16 @@ const Hooks = () => {
   const device = devices.back;
   const dispatch = useAppDispatch();
 
-  useEffect(() => {
-    checkCameraPermission();
-    setIsActive(true);
-  }, []);
-
   const checkCameraPermission = async () => {
+    setIsActive(true);
     let status = await Camera.getCameraPermissionStatus();
-    console.log('status', status);
     if (status !== 'authorized') {
       await Camera.requestCameraPermission();
       status = await Camera.getCameraPermissionStatus();
       if (status === 'denied') {
-        Alert.alert('Alert Title', 'Kamera İzni', [
+        setIsActive(false);
+
+        Alert.alert('Alert', 'You must allow the camera to scan QR', [
           {
             text: 'Cancel',
             onPress: () => console.log('Cancel Pressed'),
@@ -53,8 +50,6 @@ const Hooks = () => {
                 : Linking.openSettings(),
           },
         ]);
-
-        console.log('denied');
       }
     }
   };
