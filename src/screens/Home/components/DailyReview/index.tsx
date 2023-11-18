@@ -29,7 +29,6 @@ const DailyReview = ({data}: Props) => {
 
   return (
     <View style={styles.review}>
-      <CustomText style={styles.dailyReviewText}>Daily Review</CustomText>
       <FlatList
         data={data}
         renderItem={renderItem}

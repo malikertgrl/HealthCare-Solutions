@@ -55,7 +55,7 @@ const CustomDropDown = ({
         </View>
       </View>
       {modal && (
-        <View style={styles.dropWiew}>
+        <ScrollView style={styles.dropWiew}>
           {data.map(item => (
             <TouchableOpacity
               onPress={() => {
@@ -67,7 +67,7 @@ const CustomDropDown = ({
               </View>
             </TouchableOpacity>
           ))}
-        </View>
+        </ScrollView>
       )}
     </View>
   );

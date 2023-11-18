@@ -40,10 +40,9 @@ const styles = StyleSheet.create({
   },
   dropWiew: {
     width: '100%',
+    height: '10%',
     backgroundColor: '#F8F8F6',
     zIndex: 99,
-    position: 'absolute',
-    top: 30,
   },
   text: {borderBottomWidth: 1, padding: 2, borderColor: '#fff'},
 });

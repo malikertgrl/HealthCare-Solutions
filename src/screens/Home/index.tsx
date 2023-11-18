@@ -6,6 +6,7 @@ import TodayPlan from './components/TodayPlan';
 import DailyReview from './components/DailyReview';
 
 import Hooks from './hooks';
+import CustomText from './components/CustomText';
 
 const Home = () => {
   const {searchText, list, onSearch} = Hooks();
@@ -18,7 +19,14 @@ const Home = () => {
       <TodayPlan />
 
       <View style={styles.content}>
-        <DailyReview data={list} />
+        <CustomText style={styles.dailyReviewText}>Daily Review</CustomText>
+        {list?.length === 0 ? (
+          <View style={styles.emptyContainer}>
+            <CustomText style={styles.empty}>Empty, lets go..</CustomText>
+          </View>
+        ) : (
+          <DailyReview data={list} />
+        )}
       </View>
     </SafeAreaView>
   );
