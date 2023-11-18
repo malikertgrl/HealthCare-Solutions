@@ -1,12 +1,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <key>NSCameraUsageDescription</key>
-    <string>$(PRODUCT_NAME) needs access to your Camera.</string>
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+   
 
-    <!-- optionally, if you want to record audio: -->
-    <key>NSMicrophoneUsageDescription</key>
-    <string>$(PRODUCT_NAME) needs access to your Microphone.</string>
+
 
     <application
       android:name=".MainApplication"
